@@ -4,14 +4,11 @@
 
 A clean-room React Native (Expo) + FastAPI demo that helps **families** of seniors in assisted living see staff updates and **schedule visits**, while **facility staff** post check-ins.
 
-> **Honesty first**
->
-> - **Not a medical device.** Does not diagnose, treat, or manage clinical care.
-> - **Not affiliated** with Trinity Health, Trinity Health portals, SpeciaList, Syncura, Precision Cardiology, or any prior collaborator code.
-> - **Synthetic seed data only.** No real PHI. No fake user counts, clinical outcomes, or HIPAA certification claims.
-> - **Demo auth** (JWT via one-click personas). Privacy-minded audit logs (metadata only).
+## Scope & honesty
 
-See [SPEC.md](./SPEC.md) for product scope.
+Clean-room educational implementation using synthetic data. **Not a medical device** — does not diagnose, treat, or manage clinical care. Demo JWT auth (one-click personas). Privacy-minded audit logs (metadata only).
+
+See [`PROVENANCE.md`](PROVENANCE.md) for affiliation notes. Product scope: [`SPEC.md`](SPEC.md).
 
 ---
 
@@ -137,4 +134,4 @@ Facility: **Willow Grove Assisted Living (Demo)** — five synthetic residents w
 
 ## License / intent
 
-Built for portfolio interviews and educational demonstration. Reuse the idea freely; do not present this as a production clinical product or as affiliated with any health system.
+Built for portfolio interviews and educational demonstration. Reuse the idea freely; do not present this as a production clinical product.
