@@ -22,3 +22,6 @@ npm-debug.*
 .env
 .env.local
 *.log
+
+.claude/
+mobile/.claude/
