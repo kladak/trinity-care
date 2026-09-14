@@ -1,0 +1,15 @@
+# Optional local stack for the Trinity Care demo API.
+# Synthetic data only — educational portfolio project.
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      TRINITY_DATABASE_URL: sqlite:///./data/trinity_care.db
+      TRINITY_CORS_ORIGINS: "*"
+    volumes:
+      - api-data:/app/data
+
+volumes:
+  api-data:
