@@ -1,4 +1,4 @@
-"""ORM models — synthetic demo entities only."""
+"""ORM models."""
 
 from datetime import datetime, timezone
 from enum import Enum
@@ -118,4 +118,4 @@ class AuditLog(Base):
     resource_type: Mapped[str] = mapped_column(String(80), nullable=False)
     resource_id: Mapped[str] = mapped_column(String(80), default="")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
-    # Intentionally no request body / PHI fields — metadata only
+    # Metadata only; request and response bodies are never stored.

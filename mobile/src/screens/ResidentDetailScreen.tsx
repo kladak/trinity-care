@@ -70,7 +70,7 @@ export function ResidentDetailScreen() {
           Room {resident.room}
           {resident.facility_name ? ` · ${resident.facility_name}` : ''}
         </Muted>
-        <Banner tone="info">Synthetic demo profile — not real PHI.</Banner>
+        <Banner tone="info">Seeded profile.</Banner>
         <Card>
           <Text style={styles.section}>About (demo notes)</Text>
           <Text style={styles.body}>{resident.care_notes}</Text>

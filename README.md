@@ -1,20 +1,16 @@
-# Trinity Care — Senior-care connection demo
+# Trinity Care
 
-**Karim Ladak · portfolio / educational project**
+A React Native (Expo) + FastAPI demo that helps **families** of seniors in assisted living see staff updates and **schedule visits**, while **facility staff** post check-ins.
 
-A clean-room React Native (Expo) + FastAPI demo that helps **families** of seniors in assisted living see staff updates and **schedule visits**, while **facility staff** post check-ins.
-
-## Scope & honesty
-
-Clean-room educational implementation using synthetic data. **Not a medical device** — does not diagnose, treat, or manage clinical care. Demo JWT auth (one-click personas). Privacy-minded audit logs (metadata only).
-
-See [`PROVENANCE.md`](PROVENANCE.md) for affiliation notes. Product scope: [`SPEC.md`](SPEC.md).
+Auth uses bcrypt password hashing, JWTs and role dependencies, seeded with demo personas.
+Residents, updates and visits come from `backend/app/seed.py`. Product scope:
+[`SPEC.md`](SPEC.md).
 
 ---
 
-## Demo script (60–90s)
+## Running the demo
 
-Cold start — exact clicks for a recruiter walkthrough or screen recording.
+From a cold clone:
 
 ### 0. Prerequisites (once)
 
@@ -22,14 +18,14 @@ Cold start — exact clicks for a recruiter walkthrough or screen recording.
 git clone https://github.com/kladak/trinity-care.git
 cd trinity-care
 
-# Terminal A — API
+# Terminal A: API
 cd backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 # If port 8000 is taken: use --port 8010 and EXPO_PUBLIC_API_URL=http://localhost:8010
 
-# Terminal B — Expo web
+# Terminal B: Expo web
 cd mobile
 npm install
 npx expo start --web
@@ -39,20 +35,19 @@ Open the Expo web URL (usually `http://localhost:8081`).
 
 ### 1. Family path (~45s)
 
-1. On **Demo login**, read the yellow disclaimer banner.
-2. Click **Continue as Family** (Jordan Lee).
-3. On the **Family feed**, scroll synthetic updates for Margaret / Harold / Robert.
-4. Tap any update card → **Resident detail** (notes, updates, visits).
-5. Back → click **Schedule visit**.
-6. Select a resident, keep/adjust date-time, click **Request visit**.
-7. Confirm success banner, return to feed.
+1. Click **Continue as Family** (Jordan Lee).
+2. On the **Family feed**, scroll the updates for Margaret, Harold and Robert.
+3. Tap any update card to open **Resident detail** (notes, updates, visits).
+4. Go back and click **Schedule visit**.
+5. Select a resident, adjust the date and time, click **Request visit**.
+6. Confirm the success banner, then return to the feed.
 
 ### 2. Staff path (~30s)
 
 1. **Sign out** → **Continue as Staff** (Alex Rivera).
 2. Click **Post update**.
 3. Pick a resident, choose **Check-in**, type a short note, **Publish to family feed**.
-4. Return to feed — your new synthetic note appears at the top.
+4. Return to the feed; the new note appears at the top.
 5. Optional: **Residents** → open a profile → confirm visits / updates.
 
 ### Optional API check
@@ -128,10 +123,10 @@ GitHub Actions runs backend `pytest` on push/PR to `main`.
 | Alex Rivera | staff@demo.trinitycare.local | facility_staff |
 | Priya Shah | staff2@demo.trinitycare.local | facility_staff |
 
-Facility: **Willow Grove Assisted Living (Demo)** — five synthetic residents with updates and visits.
+Facility: **Willow Grove Assisted Living**, with five seeded residents, updates and visits.
 
 ---
 
-## License / intent
+## License
 
-Built for portfolio interviews and educational demonstration. Reuse the idea freely; do not present this as a production clinical product.
+MIT.

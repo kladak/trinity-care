@@ -1,5 +1,5 @@
 # Optional local stack for the Trinity Care demo API.
-# Synthetic data only — educational portfolio project.
+# Synthetic seed data only.
 services:
   api:
     build: ./backend

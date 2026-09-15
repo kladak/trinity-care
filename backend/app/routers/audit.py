@@ -1,4 +1,4 @@
-"""Audit log routes — metadata only."""
+"""Audit log routes. Metadata only."""
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session

@@ -30,22 +30,20 @@ export function LoginScreen() {
         </View>
 
         <Banner tone="warning">
-          Educational portfolio demo — not a medical device, not affiliated with Trinity Health,
-          synthetic seed data only. Demo auth (no real accounts / PHI).
+          Demo accounts and seeded data. Nothing here is a real resident.
         </Banner>
 
         <Card>
           <Title>Demo login</Title>
           <Subtitle>
-            Pick a persona to walk the product. Same seeded accounts every time — great for
-            interview walkthroughs.
+            Pick a persona to walk the product. The seeded accounts are the same every run.
           </Subtitle>
 
           {error ? <Banner tone="error">{error}</Banner> : null}
 
           <View style={styles.persona}>
             <Text style={styles.personaTitle}>Family member</Text>
-            <Muted>Jordan Lee — linked to Margaret, Harold, and Robert (synthetic)</Muted>
+            <Muted>Jordan Lee, linked to Margaret, Harold and Robert</Muted>
             <View style={styles.gap} />
             <Button
               label="Continue as Family"
@@ -59,7 +57,7 @@ export function LoginScreen() {
 
           <View style={styles.persona}>
             <Text style={styles.personaTitle}>Facility staff</Text>
-            <Muted>Alex Rivera — Willow Grove Assisted Living (demo facility)</Muted>
+            <Muted>Alex Rivera, Willow Grove Assisted Living</Muted>
             <View style={styles.gap} />
             <Button
               label="Continue as Staff"

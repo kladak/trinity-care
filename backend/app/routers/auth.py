@@ -1,4 +1,4 @@
-"""Auth routes — demo login and password token."""
+"""Auth routes: demo login and password token."""
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -22,7 +22,7 @@ def demo_login(body: DemoLoginIn, db: Session = Depends(get_db)) -> TokenOut:
     email = PERSONA_EMAIL[body.persona]
     user = db.query(User).filter(User.email == email).first()
     if not user:
-        raise HTTPException(status_code=500, detail="Seed data missing — restart API")
+        raise HTTPException(status_code=500, detail="Seed data missing; restart the API")
     token = create_access_token(user)
     write_audit(db, actor_id=user.id, action="demo_login", resource_type="user", resource_id=str(user.id))
     db.commit()

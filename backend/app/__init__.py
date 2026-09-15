@@ -1,1 +1,1 @@
-"""Trinity Care API — educational demo."""
+"""Trinity Care API."""

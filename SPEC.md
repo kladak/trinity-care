@@ -1,20 +1,15 @@
-# Trinity Care — Product Spec (Clean-Room Educational Demo)
+# Trinity Care: Product Spec
 
 **Author:** Karim Ladak  
-**Status:** Portfolio / educational demo only  
+**Status:** runnable locally; no hosted instance.  
 **Date:** 2026-09
 
-## Disclaimers (read first)
-
-- **Not a medical device.** This application does not diagnose, treat, or manage clinical care.
-- **Not affiliated** with Trinity Health, Trinity Health portals, SpeciaList, Syncura, Precision Cardiology, or any prior collaborator codebases.
-- **Synthetic data only.** All residents, families, messages, and visits are fictional seed data. No real PHI.
-- **No compliance claims.** This demo does not claim HIPAA certification, SOC 2, or clinical outcomes.
-- **Clean-room build.** Implemented from this public product brief alone; no proprietary source was consulted or copied.
+Residents, families, messages and visits come from `backend/app/seed.py`. The app carries
+staff updates and visit scheduling.
 
 ## Problem
 
-Families of seniors in nursing homes and assisted-living facilities often lack timely, structured visibility into day-to-day well-being. Staff updates are fragmented (phone trees, paper notes). Families want a simple channel for updates, check-ins, and visit scheduling without replacing clinical EHR workflows.
+Families of seniors in nursing homes and assisted-living facilities often lack timely, structured visibility into day-to-day well-being. Staff updates are fragmented (phone trees, paper notes). Families want a single channel for updates, check-ins and visit scheduling that sits alongside the facility's EHR.
 
 ## Goals
 
@@ -38,13 +33,13 @@ Families of seniors in nursing homes and assisted-living facilities often lack t
 
 ## Core entities
 
-- **User** — email, display name, role (`family` \| `facility_staff`), facility_id (staff only)
-- **Facility** — name, location (synthetic)
-- **Resident** — display name, facility_id, room, care notes (synthetic, non-clinical fluff)
-- **FamilyResidentLink** — family user ↔ resident, relationship label
-- **Update** — staff-authored message/check-in for a resident (type: update \| check_in \| message)
-- **Visit** — scheduled visit request (status: requested \| confirmed \| cancelled \| completed)
-- **AuditLog** — privacy-minded event log (who, action, resource, timestamp; no PHI payloads)
+- **User**: email, display name, role (`family` \| `facility_staff`), facility_id (staff only)
+- **Facility**: name, location
+- **Resident**: display name, facility_id, room, non-clinical care notes
+- **FamilyResidentLink**: family user to resident, with a relationship label
+- **Update**: staff-authored message or check-in for a resident (type: update \| check_in \| message)
+- **Visit**: scheduled visit request (status: requested \| confirmed \| cancelled \| completed)
+- **AuditLog**: who, action, resource and timestamp. No request bodies.
 
 ## API surface (v1)
 
@@ -74,11 +69,11 @@ Families of seniors in nursing homes and assisted-living facilities often lack t
 
 Screens:
 
-1. **Demo Login** — pick Family or Staff persona
-2. **Family Feed** — chronological updates for linked residents
-3. **Staff: Post Update** — select resident, type, body
-4. **Schedule Visit** — pick resident, date/time, notes
-5. **Resident Detail** — profile summary + updates + visits
+1. **Demo Login**: pick a Family or Staff persona
+2. **Family Feed**: chronological updates for linked residents
+3. **Staff: Post Update**: select resident, type and body
+4. **Schedule Visit**: pick resident, date and time, notes
+5. **Resident Detail**: profile summary with updates and visits
 
 ## Tech stack
 

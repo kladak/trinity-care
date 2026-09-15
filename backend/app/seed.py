@@ -1,4 +1,4 @@
-"""Synthetic seed data — fictional names only, no real PHI."""
+"""Seed data. All names are fictional."""
 
 from datetime import datetime, timedelta, timezone
 
@@ -23,7 +23,7 @@ def seed_if_empty(db: Session) -> None:
 
     facility = Facility(
         name="Willow Grove Assisted Living (Demo Facility)",
-        location="Ann Arbor, MI — synthetic location",
+        location="Ann Arbor, MI",
     )
     db.add(facility)
     db.flush()
@@ -64,7 +64,7 @@ def seed_if_empty(db: Session) -> None:
             display_name="Margaret Ellison (Synthetic)",
             facility_id=facility.id,
             room="214B",
-            care_notes="Enjoys afternoon puzzles and garden walks. Demo profile only — not real PHI.",
+            care_notes="Enjoys afternoon puzzles and garden walks.",
         ),
         Resident(
             display_name="Harold Nguyen (Synthetic)",
@@ -127,7 +127,7 @@ def seed_if_empty(db: Session) -> None:
     now = datetime.now(timezone.utc).replace(tzinfo=None)
     synthetic_updates = [
         (0, staff.id, "check_in", "Margaret joined the garden club this morning and seemed cheerful. (Synthetic demo note)", 28),
-        (0, staff.id, "update", "Afternoon snack was blueberry muffins — she asked for the recipe. (Synthetic)", 20),
+        (0, staff.id, "update", "Afternoon snack was blueberry muffins; she asked for the recipe.", 20),
         (0, staff2.id, "message", "Shared photos from last week's family day; she smiled through the album. (Synthetic)", 12),
         (0, staff.id, "check_in", "Quiet evening; finished a crossword with a neighbor. (Synthetic)", 4),
         (1, staff.id, "message", "Harold completed his morning stretch group. Energy looked good. (Synthetic)", 26),
@@ -135,7 +135,7 @@ def seed_if_empty(db: Session) -> None:
         (1, staff.id, "update", "Ate well at lunch; asked about weekend visitors. (Synthetic)", 8),
         (2, staff.id, "check_in", "Eleanor listened to a Beethoven playlist and shared stories with neighbors. (Synthetic)", 22),
         (2, staff2.id, "update", "Tea time favorite: chamomile. Chatted about her teaching years. (Synthetic)", 10),
-        (3, staff.id, "check_in", "Robert watched the game in the community room — good spirits. (Synthetic)", 16),
+        (3, staff.id, "check_in", "Robert watched the game in the community room and was in good spirits.", 16),
         (3, staff2.id, "message", "Phone call with family went well this afternoon. (Synthetic)", 6),
         (4, staff.id, "update", "Dorothy painted a watercolor landscape in art studio. Proud of her work. (Synthetic)", 14),
         (4, staff2.id, "check_in", "Morning walk in the courtyard; weather was mild. (Synthetic)", 2),
@@ -157,7 +157,7 @@ def seed_if_empty(db: Session) -> None:
                 resident_id=residents[0].id,
                 requester_id=family.id,
                 scheduled_at=now + timedelta(days=2, hours=14),
-                notes="Weekend afternoon visit — bring photo album (demo).",
+                notes="Weekend afternoon visit; bring the photo album.",
                 status="confirmed",
             ),
             Visit(

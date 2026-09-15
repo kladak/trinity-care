@@ -30,7 +30,7 @@ export function ScheduleVisitScreen() {
   const [residents, setResidents] = useState<Resident[]>([]);
   const [residentId, setResidentId] = useState<number | null>(null);
   const [when, setWhen] = useState(defaultVisitIso());
-  const [notes, setNotes] = useState('Weekend visit — bring photos (demo)');
+  const [notes, setNotes] = useState('Weekend visit, bring photos');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -69,7 +69,7 @@ export function ScheduleVisitScreen() {
         scheduled_at: scheduled.toISOString(),
         notes: notes.trim() || 'Demo visit request',
       });
-      setSuccess('Visit requested — staff can confirm from their view.');
+      setSuccess('Visit requested. Staff can confirm from their view.');
       setTimeout(() => navigation.goBack(), 900);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to schedule');

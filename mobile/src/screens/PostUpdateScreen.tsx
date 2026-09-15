@@ -73,7 +73,7 @@ export function PostUpdateScreen() {
         update_type: updateType,
         body: body.trim() + ' (Synthetic demo note)',
       });
-      setSuccess('Update posted — families will see it on their feed.');
+      setSuccess('Update posted. Families will see it on their feed.');
       setBody('');
       setTimeout(() => navigation.goBack(), 900);
     } catch (e) {
@@ -133,10 +133,10 @@ export function PostUpdateScreen() {
             numberOfLines={4}
             value={body}
             onChangeText={setBody}
-            placeholder="e.g. Joined morning stretch group — good energy today."
+            placeholder="e.g. Joined morning stretch group, good energy today."
             style={{ minHeight: 100, textAlignVertical: 'top' }}
           />
-          <Muted>Posts are labeled synthetic in this educational demo.</Muted>
+          <Muted>Posts appear on the family feed immediately.</Muted>
           <View style={{ height: spacing.md }} />
           <Button label="Publish to family feed" onPress={submit} loading={saving} />
         </Card>

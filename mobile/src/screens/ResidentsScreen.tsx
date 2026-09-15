@@ -46,7 +46,7 @@ export function ResidentsScreen() {
   return (
     <Screen>
       <Title>Residents</Title>
-      <Muted>Synthetic demo profiles — tap for updates & visits</Muted>
+      <Muted>Tap a resident for updates and visits</Muted>
       {loading ? (
         <LoadingState />
       ) : error ? (

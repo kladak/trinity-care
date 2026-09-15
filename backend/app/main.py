@@ -1,4 +1,4 @@
-"""Trinity Care Demo API — educational portfolio project."""
+"""Trinity Care API."""
 
 from contextlib import asynccontextmanager
 
@@ -27,9 +27,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(
     title=settings.app_name,
     description=(
-        "Educational senior-care connection demo. Not a medical device. "
-        "Not affiliated with Trinity Health or prior Trinity-named products. "
-        "Synthetic seed data only — no real PHI."
+        "Family and facility updates, resident profiles, and visit scheduling."
     ),
     version="0.1.0",
     lifespan=lifespan,
@@ -70,6 +68,6 @@ def ready() -> ReadyOut:
 def root() -> dict:
     return {
         "service": "Trinity Care Demo API",
-        "disclaimer": "Educational demo — not a medical device; synthetic data only.",
+        "seed_data": True,
         "docs": "/docs",
     }

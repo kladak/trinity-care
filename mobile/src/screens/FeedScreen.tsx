@@ -74,7 +74,7 @@ export function FeedScreen() {
       </View>
 
       <Banner tone="info">
-        Synthetic demo data only — names and notes are fictional for portfolio walkthroughs.
+        Seed data. All names and notes are fictional.
       </Banner>
 
       <View style={styles.actions}>
